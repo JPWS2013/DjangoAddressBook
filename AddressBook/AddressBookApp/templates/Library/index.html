@@ -1,0 +1,11 @@
+<h1 id="LibraryHeader"> {{ library_name }}</h1>
+
+{% if addressbook_list %}
+    <ul>
+    {% for addressbook in addressbook_list %}
+        <li><a href="/AddressBookApp/AddressBook/{{ addressbook.id }}/index/">{{ addressbook.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No addressbooks are available.</p>
+{% endif %}

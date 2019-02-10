@@ -1,0 +1,11 @@
+<h1 id="contactheader"> Detailed View For: {{ card.name }}</h1>
+
+<p>Created on: {{ card.date_added }} </p>
+<p>Last Modified: {{ card.last_modified_date }} </p>
+
+<p>Member of address books: </p>
+<ul>
+    {% for item in card.member_of_book.all %}
+        <li><a href="/AddressBookApp/AddressBook/{{ item.id }}/index">{{ item.name }}</a></li>
+    {% endfor %}
+</ul>

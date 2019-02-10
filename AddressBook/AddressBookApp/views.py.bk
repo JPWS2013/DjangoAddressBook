@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+from django.http import HttpResponse
+from django.template import loader
+
+from .models import Library, AddressBook
+
+def listcontacts(request, addressbook_id):
+	contact_list = AddressBook.objects.all()
+	template = loader.get_template('AddressBook/index.html')
+	context = {
+		'contact_list':contact_list,
+	}
+	return HttpResponse(template.render(context, request))
